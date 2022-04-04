@@ -170,7 +170,7 @@ trendsceek_test <- function(pp, nrand = 1e4, ncores = 1, alpha_env = 0.1 / ifels
         nfeats = ncol(marx)
         feats = colnames(marx)
     }
-    tstat_list = BiocParallel::bplapply(1:nfeats, calc_trendstats, BPPARAM = bp_param, pp = pp, n.rand = nrand, alpha_env = alpha_env, alpha_nom_early = alpha_nom_early)
+    tstat_list = lapply(1:nfeats, calc_trendstats, pp = pp, n.rand = nrand, alpha_env = alpha_env, alpha_nom_early = alpha_nom_early)
     names(tstat_list) = feats
 
     ##get supinum stats
